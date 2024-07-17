@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 25vw;
+    /* border: 1px solid black; */
+    margin: 0 auto;
+}
+
+.display {
+    border: 1px solid black;
+    text-align: right;
+    height: max-content;
+    font-size: 64px;
+    margin-top: 12px;
+    margin-bottom: 24px;
+}
+
+.calc-buttons {
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.row {
+    display: flex;
+    gap: 4px;
+    justify-content: space-evenly;
+}
+
+button {
+    width: 48px;
+    height: 46px;
+    background-color: aquamarine;
+    border: 1px solid green;
+    flex: 1;
+}
+
+button.zero {
+    flex: 3;
+}
