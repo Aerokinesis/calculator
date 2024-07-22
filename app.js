@@ -1,5 +1,5 @@
 function add (num1, num2) {
-    return num1 + num2;
+    return parseInt(num1) + parseInt(num2);
 }
 
 function subtract (num1, num2) {
@@ -55,9 +55,15 @@ let numDigits = document.querySelectorAll(".digit");
 
 for (let i = 0; i < numDigits.length; i++) {
     numDigits[i].addEventListener("click", function(event) {
+        if (number1 == "") {
             number1 += event.target.textContent;
             console.log(number1);
             display.textContent = `${number1}`;
+        } else if (number2 == "" && op != "") {
+            number2 += event.target.textContent;
+            console.log(number2);
+            display.textContent = `${number2}`;
+        }
     });
 }
 
@@ -78,5 +84,6 @@ let equals = document.querySelector(".equal");
 equals.addEventListener("click", function (event) {
     // display.textContent = ""
     console.log(operate(number1, number2, op));
+    display.textContent = operate(number1, number2, op);
     console.log("Total!");
 })
