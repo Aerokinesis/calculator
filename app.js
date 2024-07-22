@@ -37,7 +37,7 @@ function operate(num1, num2, operator) {
         case '/':
             return divide(num1, num2);
         case '%':
-            return remainder(num1, num2);
+            return mod(num1, num2);
         default:
             return null;
     }
@@ -45,7 +45,8 @@ function operate(num1, num2, operator) {
 
 for (let i = 0; i < operators.length; i++) {
     operators[i].addEventListener("click", function(event) {
-        display.textContent = event.target.textContent;
+        console.log(event.target.textContent);
+        op = event.target.textContent;
     });
 }
 
@@ -54,7 +55,9 @@ let numDigits = document.querySelectorAll(".digit");
 
 for (let i = 0; i < numDigits.length; i++) {
     numDigits[i].addEventListener("click", function(event) {
-        display.textContent = event.target.textContent;
+            number1 += event.target.textContent;
+            console.log(number1);
+            display.textContent = `${number1}`;
     });
 }
 
@@ -63,8 +66,8 @@ let allClearBtn = document.querySelector(".clear");
 allClearBtn.addEventListener('click', function(e){
 
     display.textContent = "0";
-    number1 = "0";
-    number2 = "0";
+    number1 = "";
+    number2 = "";
     op = "";
 
     console.log("Cleared!");
@@ -74,6 +77,6 @@ let equals = document.querySelector(".equal");
 
 equals.addEventListener("click", function (event) {
     // display.textContent = ""
-    display.textContent = operate(number1, number2, operatorInput);
+    console.log(operate(number1, number2, op));
     console.log("Total!");
 })
