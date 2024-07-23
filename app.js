@@ -3,19 +3,19 @@ function add (num1, num2) {
 }
 
 function subtract (num1, num2) {
-    return num1 - num2;
+    return parseInt(num1) - parseInt(num2);
 }
 
 function multiply (num1, num2) {
-    return num1 * num2;
+    return parseInt(num1) * parseInt(num2);
 }
 
 function divide (num1, num2) {
-    return num1 / num2;
+    return parseInt(num1) / parseInt(num2);
 }
 
 function mod (num1, num2) {
-    return num1 % num2;
+    return parseInt(num1) % parseInt(num2);
 }
 
 let number1 = '';
@@ -55,14 +55,23 @@ let numDigits = document.querySelectorAll(".digit");
 
 for (let i = 0; i < numDigits.length; i++) {
     numDigits[i].addEventListener("click", function(event) {
-        if (number1 == "") {
+        if (op == "") {
             number1 += event.target.textContent;
             console.log(number1);
             display.textContent = `${number1}`;
-        } else if (number2 == "" && op != "") {
-            number2 += event.target.textContent;
-            console.log(number2);
-            display.textContent = `${number2}`;
+        } else if (op != "") {
+            if (number2 == "") {
+                number2 += event.target.textContent;
+                console.log(number2);
+                display.textContent = `${number2}`;
+            } else if (number2 != "") {
+                number1 = operate(number1, number2, op);
+                display.textContent = `${number1}`;
+                number2 = "";
+                op = "";
+                console.log(number1);
+            }
+                
         }
     });
 }
