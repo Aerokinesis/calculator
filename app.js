@@ -97,4 +97,5 @@ equals.addEventListener("click", function (event) {
     number2 = "";
     op = "";
     console.log("Total!");
+    // if op is empty do nothing
 })

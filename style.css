@@ -4,9 +4,12 @@
     box-sizing: border-box;
 }
 
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .container {
     width: 25vw;
-    /* border: 1px solid black; */
     margin: 0 auto;
 }
 
@@ -35,8 +38,11 @@
 button {
     height: 46px;
     background-color: aquamarine;
-    border: 1px solid green;
     flex: 1;
+}
+
+.digit {
+    border: 1px solid green;
 }
 
 button:hover {
@@ -45,4 +51,22 @@ button:hover {
 
 button.zero {
     flex: 2;
+}
+
+.multiply, .subtract, .plus, .divide {
+    background-color: aqua;
+}
+
+.operator {
+    border: 1px solid darkblue;
+}
+
+.equal {
+    background-color: lightsalmon;
+    border: 1px solid salmon;
+}
+
+.mod, .clear {
+    background-color: lightpink;
+    border: 1px solid hotpink;
 }
