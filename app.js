@@ -46,13 +46,12 @@ function operate(num1, num2, operator) {
 for (let i = 0; i < operators.length; i++) {
     operators[i].addEventListener("click", function(event) {
         console.log(event.target.textContent);
-        if (op != "") {
+        if (op == "") {
             op = event.target.textContent;
         } else if (op != "") {
             number1 = operate(number1, number2, op);
-            display.textContent = `${number1};`
+            display.textContent = `${number1}`;
             number2 = "";
-            op = "";
         }
         
     });
@@ -68,12 +67,9 @@ for (let i = 0; i < numDigits.length; i++) {
             console.log(number1);
             display.textContent = `${number1}`;
         } else if (op != "") {
-            if (number2 == "") {
-                number2 += event.target.textContent;
-                console.log(number2);
-                display.textContent = `${number2}`;
-            }
-                
+            number2 += event.target.textContent;
+            console.log(number2);
+            display.textContent = `${number2}`; 
         }
     });
 }
@@ -93,8 +89,10 @@ allClearBtn.addEventListener('click', function(e){
 let equals = document.querySelector(".equal");
 
 equals.addEventListener("click", function (event) {
-    // display.textContent = ""
     console.log(operate(number1, number2, op));
     display.textContent = operate(number1, number2, op);
+    number1 = display.textContent;
+    number2 = "";
+    op = "";
     console.log("Total!");
 })
