@@ -46,7 +46,15 @@ function operate(num1, num2, operator) {
 for (let i = 0; i < operators.length; i++) {
     operators[i].addEventListener("click", function(event) {
         console.log(event.target.textContent);
-        op = event.target.textContent;
+        if (op != "") {
+            op = event.target.textContent;
+        } else if (op != "") {
+            number1 = operate(number1, number2, op);
+            display.textContent = `${number1};`
+            number2 = "";
+            op = "";
+        }
+        
     });
 }
 
@@ -64,12 +72,6 @@ for (let i = 0; i < numDigits.length; i++) {
                 number2 += event.target.textContent;
                 console.log(number2);
                 display.textContent = `${number2}`;
-            } else if (number2 != "") {
-                number1 = operate(number1, number2, op);
-                display.textContent = `${number1}`;
-                number2 = "";
-                op = "";
-                console.log(number1);
             }
                 
         }
