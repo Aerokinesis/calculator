@@ -86,6 +86,8 @@ allClearBtn.addEventListener('click', function(e){
     console.log("Cleared!");
 });
 
+
+
 let equals = document.querySelector(".equal");
 
 equals.addEventListener("click", function (event) {
