@@ -91,11 +91,18 @@ allClearBtn.addEventListener('click', function(e){
 let equals = document.querySelector(".equal");
 
 equals.addEventListener("click", function (event) {
-    console.log(operate(number1, number2, op));
-    display.textContent = operate(number1, number2, op);
-    number1 = display.textContent;
-    number2 = "";
-    op = "";
-    console.log("Total!");
-    // if op is empty do nothing
-})
+    if (number1 == "" || number2 == "" || op == "") {
+        if (number1 != "") {
+            display.textContent = number1;
+        } else {
+            number1 = display.textContent;
+        }
+    } else {
+        console.log(operate(number1, number2, op));
+        display.textContent = operate(number1, number2, op);
+        number1 = display.textContent;
+        number2 = "";
+        op = "";
+        console.log("Total!");
+    }
+});
