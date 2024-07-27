@@ -61,12 +61,24 @@ button.zero {
     border: 1px solid darkblue;
 }
 
+.operator:hover {
+    background-color: darkcyan;
+}
+
 .equal {
     background-color: lightsalmon;
     border: 1px solid salmon;
 }
 
+.equal:hover {
+    background-color: orange;
+}
+
 .mod, .clear {
     background-color: lightpink;
     border: 1px solid hotpink;
+}
+
+.mod:hover, .clear:hover {
+    background-color: rgb(255, 108, 186);
 }

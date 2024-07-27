@@ -11,7 +11,12 @@ function multiply (num1, num2) {
 }
 
 function divide (num1, num2) {
-    return parseInt(num1) / parseInt(num2);
+    let decimal = parseFloat((num1 / num2).toFixed(8));
+    if (decimal == Infinity) {
+        return "Can't divide by zero";
+    } else {
+        return decimal;
+    }
 }
 
 function mod (num1, num2) {
@@ -42,6 +47,7 @@ function operate(num1, num2, operator) {
             return null;
     }
 }
+
 
 for (let i = 0; i < operators.length; i++) {
     operators[i].addEventListener("click", function(event) {
@@ -96,11 +102,13 @@ equals.addEventListener("click", function (event) {
             display.textContent = number1;
         } else {
             number1 = display.textContent;
+            number1 = "";
         }
     } else {
         console.log(operate(number1, number2, op));
         display.textContent = operate(number1, number2, op);
         number1 = display.textContent;
+        number1 = "";
         number2 = "";
         op = "";
         console.log("Total!");
