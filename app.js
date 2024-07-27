@@ -100,6 +100,7 @@ equals.addEventListener("click", function (event) {
     if (number1 == "" || number2 == "" || op == "") {
         if (number1 != "") {
             display.textContent = number1;
+            number1 = "";
         } else {
             number1 = display.textContent;
             number1 = "";
@@ -108,7 +109,7 @@ equals.addEventListener("click", function (event) {
         console.log(operate(number1, number2, op));
         display.textContent = operate(number1, number2, op);
         number1 = display.textContent;
-        number1 = "";
+        // number1 = "";
         number2 = "";
         op = "";
         console.log("Total!");
