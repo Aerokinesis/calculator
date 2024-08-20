@@ -68,14 +68,28 @@ let numDigits = document.querySelectorAll(".digit");
 
 for (let i = 0; i < numDigits.length; i++) {
     numDigits[i].addEventListener("click", function(event) {
+        const digit = event.target.textContent;
+
         if (op == "") {
-            number1 += event.target.textContent;
-            console.log(number1);
-            display.textContent = `${number1}`;
+            // Prevent multiple zeros at the start
+            if (number1 === "0" && digit === "0") {
+                return; // Do nothing if 0 is pressed repeatedly
+            } else if (number1 === "0" && digit !== "0") {
+                number1 = digit; // Replace the initial 0 with the new digit
+            } else {
+                number1 += digit; // Add the digit as usual
+            }
+            display.textContent = number1; // Update display
         } else if (op != "") {
-            number2 += event.target.textContent;
-            console.log(number2);
-            display.textContent = `${number2}`; 
+            // Prevent multiple zeros at the start of number2
+            if (number2 === "0" && digit === "0") {
+                return; // Do nothing if 0 is pressed repeatedly
+            } else if (number2 === "0" && digit !== "0") {
+                number2 = digit; // Replace the initial 0 with the new digit
+            } else {
+                number2 += digit; // Add the digit as usual
+            }
+            display.textContent = number2; // Update display
         }
     });
 }
@@ -100,16 +114,13 @@ equals.addEventListener("click", function (event) {
     if (number1 == "" || number2 == "" || op == "") {
         if (number1 != "") {
             display.textContent = number1;
-        } else {
-            number1 = "";
         }
     } else {
-        console.log(operate(number1, number2, op));
-        display.textContent = operate(number1, number2, op);
-        number1 = display.textContent;
-        number1 = "";
-        number2 = "";
-        op = "";
+        const result = operate(number1, number2, op);
+        display.textContent = result;
+        number1 = result.toString(); // Retain the result for future operations
+        number2 = ""; // Reset number2 to allow for new input
+        op = ""; // Reset the operator for a new operation
         console.log("Total!");
     }
 });
