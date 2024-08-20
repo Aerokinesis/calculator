@@ -74,11 +74,11 @@ button.zero {
     background-color: orange;
 }
 
-.mod, .clear {
+.mod, .clear, .plus-or-minus {
     background-color: lightpink;
     border: 1px solid hotpink;
 }
 
-.mod:hover, .clear:hover {
+.mod:hover, .clear:hover, .plus-or-minus:hover {
     background-color: rgb(255, 108, 186);
 }
