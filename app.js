@@ -58,6 +58,7 @@ function operate(num1, num2, operator) {
 
 let plusMinusBtn = document.querySelector(".plus-or-minus");
 
+/*
 plusMinusBtn.addEventListener(("click"), function(event) {
     if (op == "") {
         number1 = toggleSign(number1);
@@ -66,7 +67,9 @@ plusMinusBtn.addEventListener(("click"), function(event) {
         number2 = toggleSign(number2);
         display.textContent = number2;
     }
-});
+}); 
+
+*/
 
 for (let i = 0; i < operators.length; i++) {
     operators[i].addEventListener("click", function(event) {
